@@ -104,88 +104,10 @@ function BoardBar({ board }) {
             }
           }}
         >
-          <Tooltip title='minat'>
+          <Tooltip title='doiphan'>
             <Avatar
-              alt='minat'
+              alt='doiphan'
               src='https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/275367768_1461954760914779_2105340831232289498_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yZ3YSmTRBHEAX9yPrwu&_nc_ht=scontent.fhan3-3.fna&oh=00_AfAI2Tz3Yg92sHhBB3sZYuY0MEFmAxxo2NCYczukCOxawA&oe=660AC9CF'
-            />
-          </Tooltip>
-          <Tooltip title='Lê Điêp'>
-            <Avatar
-              alt='Lee Hole Deep'
-              src='https://scontent.fhan4-5.fna.fbcdn.net/v/t39.30808-6/409849104_6896649490413592_1708925570856723941_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=_GYpyCZhTLEAX_M-c2j&_nc_oc=Adh1mNOZzSXISB-oxCCoTSnop_mLR-HU8Tnj0WurX-ofzowtMM9dA1IL_0DttCIsoAE&_nc_ht=scontent.fhan4-5.fna&oh=00_AfBQ6Mttfaes7UOAxvBSUWE3BmGC7Lajdlvq4kNwlM4-Og&oe=660A945E'
-            />
-          </Tooltip>
-          <Tooltip title='xxx'>
-            <Avatar
-              alt='xxx'
-              src='https://farm66.staticflickr.com/65535/51787457781_d356acb798_o.jpg'
-            />
-          </Tooltip>
-          <Tooltip title='tân trần ác quỉ'>
-            <Avatar
-              alt='tân trần ác quỉ'
-              src='https://images.fpt.shop/unsafe/filters:quality(90)/fptshop.com.vn/uploads/images/tin-tuc/169746/Originals/avatar-anime.jpg'
-            />
-          </Tooltip>
-          <Tooltip title='huy'>
-            <Avatar
-              alt='huy'
-              src='https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/293065237_460578709243589_1179034753693247704_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ccOAAVLqA1UAX9OftEm&_nc_ht=scontent.fhan4-3.fna&oh=00_AfCAZC4gRUMPnpU8bt95SK0bhfURxcXwCd2TNZyljmeJwg&oe=660B54CE'
-            />
-          </Tooltip>
-          <Tooltip title='chanpun'>
-            <Avatar
-              alt='chanpun'
-              src='https://scontent.fhan3-3.fna.fbcdn.net/v/t1.6435-9/120225747_134002775091150_2543228272478636974_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=MQcBhj_i58gAX_TiNUo&_nc_ht=scontent.fhan3-3.fna&oh=00_AfAQVAIS_RRmIQENRH6823DreI_UBgEVHU9bwsiKJM-zUg&oe=662DCB65'
-            />
-          </Tooltip>
-          <Tooltip title='Trần Tiến'>
-            <Avatar
-              alt='Trần Tiến'
-              src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2F1234popo%2Favt%2F&psig=AOvVaw0uZMxKyuDzQMQgW1ghd17P&ust=1712555493394000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOD628G0r4UDFQAAAAAdAAAAABAE'
-            />
-          </Tooltip>
-          <Tooltip title='minat'>
-            <Avatar
-              alt='minat'
-              src='https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/275367768_1461954760914779_2105340831232289498_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yZ3YSmTRBHEAX9yPrwu&_nc_ht=scontent.fhan3-3.fna&oh=00_AfAI2Tz3Yg92sHhBB3sZYuY0MEFmAxxo2NCYczukCOxawA&oe=660AC9CF'
-            />
-          </Tooltip>
-          <Tooltip title='Lê Điêp'>
-            <Avatar
-              alt='Lee Hole Deep'
-              src='https://scontent.fhan4-5.fna.fbcdn.net/v/t39.30808-6/409849104_6896649490413592_1708925570856723941_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=_GYpyCZhTLEAX_M-c2j&_nc_oc=Adh1mNOZzSXISB-oxCCoTSnop_mLR-HU8Tnj0WurX-ofzowtMM9dA1IL_0DttCIsoAE&_nc_ht=scontent.fhan4-5.fna&oh=00_AfBQ6Mttfaes7UOAxvBSUWE3BmGC7Lajdlvq4kNwlM4-Og&oe=660A945E'
-            />
-          </Tooltip>
-          <Tooltip title='Nguyễn Thế Hoàng'>
-            <Avatar
-              alt='Giáo.Làng'
-              src='https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/270961679_10159870536636108_2642967668131478092_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=D28lE3oUmggAX8ZqyWd&_nc_ht=scontent.fhan3-3.fna&oh=00_AfCZolgHaeyOJM3j74WgEYNiuJxQwBzcM869zjE0ShV-cQ&oe=660AB797'
-            />
-          </Tooltip>
-          <Tooltip title='tân trần ác quỉ'>
-            <Avatar
-              alt='tân trần ác quỉ'
-              src='https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/275558861_1009487280003014_5626488165690134641_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=jJ5__6ALvUsAX_GGDaw&_nc_ht=scontent.fhan4-3.fna&oh=00_AfDodyC_EUufqPbaKJMiZlZkjopxv9EJUdMtcuZEpkfyYA&oe=660AF252'
-            />
-          </Tooltip>
-          <Tooltip title='huy'>
-            <Avatar
-              alt='huy'
-              src='https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/293065237_460578709243589_1179034753693247704_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ccOAAVLqA1UAX9OftEm&_nc_ht=scontent.fhan4-3.fna&oh=00_AfCAZC4gRUMPnpU8bt95SK0bhfURxcXwCd2TNZyljmeJwg&oe=660B54CE'
-            />
-          </Tooltip>
-          <Tooltip title='chanpun'>
-            <Avatar
-              alt='chanpun'
-              src='https://scontent.fhan3-3.fna.fbcdn.net/v/t1.6435-9/120225747_134002775091150_2543228272478636974_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=MQcBhj_i58gAX_TiNUo&_nc_ht=scontent.fhan3-3.fna&oh=00_AfAQVAIS_RRmIQENRH6823DreI_UBgEVHU9bwsiKJM-zUg&oe=662DCB65'
-            />
-          </Tooltip>
-          <Tooltip title='Trần Tiến'>
-            <Avatar
-              alt='Trần Tiến'
-              src='https://scontent.fhan4-1.fna.fbcdn.net/v/t39.30808-6/404986929_365977682484734_8362423529042821163_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=3DUtFpdsV4AAX8j0gro&_nc_ht=scontent.fhan4-1.fna&oh=00_AfB8OT8TkTb5zUyQmItjvh3eEocfu-Xd0o4I30QgzofDpw&oe=660AC4F3'
             />
           </Tooltip>
         </AvatarGroup>

@@ -23,7 +23,7 @@ function Profiles() {
 
   return (
     <Box>
-      <Tooltip title='minat'>
+      <Tooltip title='doiphan'>
         <IconButton
           onClick={handleClick}
           size='small'
@@ -35,7 +35,7 @@ function Profiles() {
         >
           <Avatar
             sx={{ width: 36, height: 36 }}
-            alt='minat'
+            alt='doiphan'
             src='https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/275367768_1461954760914779_2105340831232289498_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yZ3YSmTRBHEAX9yPrwu&_nc_ht=scontent.fhan3-3.fna&oh=00_AfAI2Tz3Yg92sHhBB3sZYuY0MEFmAxxo2NCYczukCOxawA&oe=660AC9CF'
           />
         </IconButton>
@@ -51,10 +51,10 @@ function Profiles() {
         }}
       >
         <MenuItem>
-          <Avatar sx={{ width: 28, height: 28, mr: 2 }} alt='minat' src='https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/275367768_1461954760914779_2105340831232289498_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yZ3YSmTRBHEAX9yPrwu&_nc_ht=scontent.fhan3-3.fna&oh=00_AfAI2Tz3Yg92sHhBB3sZYuY0MEFmAxxo2NCYczukCOxawA&oe=660AC9CF'/> Profile
+          <Avatar sx={{ width: 28, height: 28, mr: 2 }} alt='doiphan' src='https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/275367768_1461954760914779_2105340831232289498_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yZ3YSmTRBHEAX9yPrwu&_nc_ht=scontent.fhan3-3.fna&oh=00_AfAI2Tz3Yg92sHhBB3sZYuY0MEFmAxxo2NCYczukCOxawA&oe=660AC9CF'/> Profile
         </MenuItem>
         <MenuItem>
-          <Avatar sx={{ width: 28, height: 28, mr: 2 }} alt='minat' src='https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/275367768_1461954760914779_2105340831232289498_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yZ3YSmTRBHEAX9yPrwu&_nc_ht=scontent.fhan3-3.fna&oh=00_AfAI2Tz3Yg92sHhBB3sZYuY0MEFmAxxo2NCYczukCOxawA&oe=660AC9CF' /> My account
+          <Avatar sx={{ width: 28, height: 28, mr: 2 }} alt='doiphan' src='https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/275367768_1461954760914779_2105340831232289498_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yZ3YSmTRBHEAX9yPrwu&_nc_ht=scontent.fhan3-3.fna&oh=00_AfAI2Tz3Yg92sHhBB3sZYuY0MEFmAxxo2NCYczukCOxawA&oe=660AC9CF' /> My account
         </MenuItem>
         <Divider />
         <MenuItem>
