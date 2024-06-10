@@ -74,20 +74,40 @@ function Column({ column, createNewCard, deleteColumnDetails }) {
   }
 
   // Xoá 1 Columns và Cards bên trong nó
+  // const confirmDeleteColumn = useConfirm()
+  // const handleDeleteColumn = () => {
+  //   confirmDeleteColumn({
+  //     title: 'Delete Column !?',
+  //     description: 'This action will permanently delete this Column and all Cards inside it. Are you sure?',
+  //     confirmationText: 'Yes, delete it!',
+  //     cancellationText: 'No, keep it'
+  //     // buttonOrder: ['confirm', 'cancel']
+  //     // allowClose: false,
+  //     // dialogProps: { maxWidth: 'xs' },
+  //     // cancellationButtonProps: { color: 'primary' },
+  //     // confirmationButtonProps: { color: 'error', variant: 'outlined' },
+  //     // description: 'Hãy chấp nhận sự thật rằng minatdeptrai để đươc xác nhận xoá Column này!',
+  //     // confirmationKeyword: 'minatdeptrai'
+  //   }).then(() => {
+  //     deleteColumnDetails(column._id)
+  //   }).catch(() => {})
+  // }
+
+  // Xoá 1 Columns và Cards bên trong nó
   const confirmDeleteColumn = useConfirm()
   const handleDeleteColumn = () => {
     confirmDeleteColumn({
-      title: 'Delete Column !?',
-      description: 'This action will permanently delete this Column and all Cards inside it. Are you sure?',
-      confirmationText: 'Yes, delete it!',
-      cancellationText: 'No, keep it'
+      title: 'Delete Column?',
+      description: 'This action will permanetly delete your Column and its Cards! Are you sure?',
+      confirmationText: 'Confirm',
+      cancellationText: 'Cancel'
       // buttonOrder: ['confirm', 'cancel']
       // allowClose: false,
-      // dialogProps: { maxWidth: 'xs' },
-      // cancellationButtonProps: { color: 'primary' },
-      // confirmationButtonProps: { color: 'error', variant: 'outlined' },
-      // description: 'Hãy chấp nhận sự thật rằng minatdeptrai để đươc xác nhận xoá Column này!',
-      // confirmationKeyword: 'minatdeptrai'
+      // dialogActionsProps: { maxWidth: 'xs' },
+      // confirmationButtonProps: { color: 'secondary', variant: 'outlined' },
+      // cancellationButtonProps: { color: 'inherit' },
+      // description: 'Bạn có chắc chắn doiphandev để xóa Column này hay không?',
+      // confirmationKeyword: 'doiphandev',
     }).then(() => {
       deleteColumnDetails(column._id)
     }).catch(() => {})
