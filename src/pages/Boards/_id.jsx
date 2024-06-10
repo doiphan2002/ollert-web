@@ -5,28 +5,28 @@ import BoardBar from './BoardBar/BoardBar'
 import BoardContent from './BoardContent/BoardContent'
 import { mapOrder } from '~/utils/sort'
 
-import { mockData } from '~/apis/mock-data'
+
 import {
   fetchBoardDetailsAPI,
   createNewColumnAPI,
-  createNewCardAPI
-  // updateBoardDetailsAPI,
+  createNewCardAPI,
+  updateBoardDetailsAPI,
   // updateColumnDetailsAPI,
   // moveCardToDifferentColumnAPI,
   // deleteColumnDetailsAPI
 } from '~/apis'
 import { generatePlaceholderCard } from '~/utils/formatters'
 import { isEmpty } from 'lodash'
-import Box from '@mui/material/Box'
-import CircularProgress from '@mui/material/CircularProgress'
-import Typography from '@mui/material/Typography'
-import { toast } from 'react-toastify'
+// import Box from '@mui/material/Box'
+// import CircularProgress from '@mui/material/CircularProgress'
+// import Typography from '@mui/material/Typography'
+// import { toast } from 'react-toastify'
 
 function Board() {
   const [board, setBoard] = useState(null)
 
   useEffect(() => {
-    const boardId = '66628accf9e8aef9c61ba7ba'
+    const boardId = '66667f80dbff0f9cfbd65228'
     // Call API
     fetchBoardDetailsAPI(boardId).then(board => {
 
@@ -45,6 +45,7 @@ function Board() {
     })
   }, [])
 
+  // Func này có nhiệm vụ gọi API tạo mới Column và làm lại dữ liệu State Board
   const createNewColumn = async (newColumnData) => {
     const createdColumn = await createNewColumnAPI({
       ...newColumnData,
@@ -61,6 +62,7 @@ function Board() {
     setBoard(newBoard)
   }
 
+  // Func này có nhiệm vụ gọi API tạo mới Card và làm lại dữ liệu State Board
   const createNewCard = async (newCardData) => {
     const createdCard = await createNewCardAPI({
       ...newCardData,
@@ -77,6 +79,22 @@ function Board() {
     }
     setBoard(newBoard)
   }
+
+  // Func này có nhiệm vụ gọi API và xử lý khi kéo thả Column xong xuôi
+  const moveColumns = async (dndorderedColumns) => {
+    // Update cho chuẩn dữ liệu state Board
+    const dndorderedColumnsIds = dndorderedColumns.map(c => c._id)
+    const newBoard = { ...board }
+    newBoard.columns = dndorderedColumns
+    newBoard.columnOrderIds = dndorderedColumnsIds
+    setBoard(newBoard)
+
+    // Gọi API update Board
+    await updateBoardDetailsAPI(newBoard._id, { columnOrderIds: dndorderedColumnsIds })
+
+  }
+
+
   return (
     <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>
       <AppBar />
@@ -85,7 +103,7 @@ function Board() {
         board={board}
         createNewColumn={createNewColumn}
         createNewCard={createNewCard}
-        // moveColumns={moveColumns}
+        moveColumns={moveColumns}
         // moveCardInTheSameColumn={moveCardInTheSameColumn}
         // moveCardToDifferentColumn={moveCardToDifferentColumn}
         // deleteColumnDetails={deleteColumnDetails}

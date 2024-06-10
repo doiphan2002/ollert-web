@@ -8,10 +8,11 @@ export const fetchBoardDetailsAPI = async (boardId) => {
   return response.data
 }
 
-// export const updateBoardDetailsAPI = async (boardId, updateData) => {
-//   const response = await axios.put(`${API_ROOT}/v1/boards/${boardId}`, updateData)
-//   return response.data
-// }
+export const updateBoardDetailsAPI = async (boardId, updateData) => {
+  const response = await axios.put(`${API_ROOT}/v1/boards/${boardId}`, updateData)
+  return response.data
+}
+
 
 // export const moveCardToDifferentColumnAPI = async (updateData) => {
 //   const response = await axios.put(`${API_ROOT}/v1/boards/supports/moving_cards`, updateData)
