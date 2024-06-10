@@ -17,10 +17,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <CssVarsProvider theme={theme}>
     <ConfirmProvider defaultOptions={{
       allowClose: false,
-      dialogProps: { maxWidth: 'xs' },
+      dialogActionsProps: { maxWidth: 'xs' },
       buttonOrder: ['confirm', 'cancel'],
-      cancellationButtonProps: { color: 'primary' },
-      confirmationButtonProps: { color: 'error', variant: 'outlined' }
+      confirmationButtonProps: { color: 'secondary', variant: 'outlined' },
+      cancellationButtonProps: { color: 'inherit' }
+
     }}>
       <CssBaseline />
       <App />
