@@ -1,6 +1,5 @@
 import Box from '@mui/material/Box'
 import ListColumns from './ListColumns/ListColumns'
-import { mapOrder } from '~/utils/sort'
 import {
   DndContext,
   // PointerSensor,
@@ -35,9 +34,9 @@ function BoardContent({
   board,
   createNewColumn,
   createNewCard,
-  moveColumns
-  // moveCardInTheSameColumn,
-  // moveCardToDifferentColumn,
+  moveColumns,
+  moveCardInTheSameColumn,
+  moveCardToDifferentColumn,
   // deleteColumnDetails
 }) {
   // pointer sensor cũng ngon nhưng còn vài case chưa thật sự ổn nên mình chuyển qua dùng mouse sensor
@@ -66,7 +65,7 @@ function BoardContent({
 
   useEffect(() => {
     // Columns đã được sort ở component cha cao nhất
-    setOrderedColumns(mapOrder(board?.columns, board?.columnOrderIds, '_id'))
+    setOrderedColumns(board.columns)
   }, [board])
 
   // Tìm một cái Column theo CardId
@@ -76,7 +75,7 @@ function BoardContent({
     return orderedColumns.find(column => column?.cards?.map(card => card._id)?.includes(cardId))
   }
 
-  //! Func chung xử lí việc Cập nhật state trong trường hợp di chuyển Card giữa các Column khác nhau
+  // Khởi tạo Func chung xử lí việc Cập nhật state trong trường hợp di chuyển Card giữa các Column khác nhau
   const moveCardBetweenDifferentColumns = (
     overColumn,
     overCardId,
@@ -143,6 +142,15 @@ function BoardContent({
       //     nextColumns
       //   )
       // }
+      // Nếu func này đc gọi từ handleDragEnd nghĩa là đã kéo thả xong, lúc này mới xử lỵ gọi api 1 lần ở đây
+      if (triggerFrom === 'handleDragOver')
+        // Trả về giá trị state mới (chuẩn vị trí)
+        moveCardToDifferentColumn(
+          activeDraggingCardId,
+          oldColumnWhenDraggingCard._id,
+          nextOverColumn._id,
+          nextColumns
+        )
 
       return nextColumns
     })
@@ -219,6 +227,7 @@ function BoardContent({
 
       if (!activeColumn || !overColumn) return
 
+      // Hành động kéo thả card giữa 2 column khác nhau
       if (oldColumnWhenDraggingCard._id !== overColumn._id) {
         moveCardBetweenDifferentColumns(
           overColumn,
@@ -227,7 +236,8 @@ function BoardContent({
           over,
           activeColumn,
           activeDraggingCardId,
-          activeDraggingCardData
+          activeDraggingCardData,
+          'handleDragEnd'
         )
       } else {
         // Hành động kéo thả card trong cùng một cái column
@@ -235,21 +245,26 @@ function BoardContent({
         // Lấy vị trí cũ (từ thằng oldColumnWhenDraggingCard)
         const oldCardIndex = oldColumnWhenDraggingCard?.cards?.findIndex(c => c._id === activeDragItemId)
 
+
         // Lấy vị trí mới (từ thằng over)
         const newCardIndex = overColumn?.cards?.findIndex(c => c._id === overCardId)
 
         const dndOrderedCards = arrayMove(oldColumnWhenDraggingCard?.cards, oldCardIndex, newCardIndex)
 
+        const dndOrderedCardIds = dndOrderedCards.map(card => card._id)
+
+        // Vẫn phải update State ở đây để tránh delay hoặc Flickering giao diện lúc kéo thả cần phải chờ gọi API (small trick)
         setOrderedColumns(prevColumns => {
           const nextColumns = cloneDeep(prevColumns)
 
           const targetColumn = nextColumns.find(c => c._id === overColumn._id)
 
           targetColumn.cards = dndOrderedCards
-          targetColumn.cardOrderIds = dndOrderedCards.map(card => card._id)
+          targetColumn.cardOrderIds = dndOrderedCardIds
 
           return nextColumns
         })
+        moveCardInTheSameColumn(dndOrderedCards, dndOrderedCardIds, oldColumnWhenDraggingCard._id)
       }
     }
 
@@ -264,11 +279,11 @@ function BoardContent({
 
         const dndorderedColumns = arrayMove(orderedColumns, oldColumnIndex, newCloumnIndex)
 
-        // const dndorderedColumnsIds = dndorderedColumns.map(c => c._id)
-        moveColumns(dndorderedColumns)
-
         // Vẫn phải update State ở đây để tránh delay hoặc Flickering giao diện lúc kéo thả cần phải chờ gọi API (small trick)
         setOrderedColumns(dndorderedColumns)
+
+        // const dndorderedColumnsIds = dndorderedColumns.map(c => c._id)
+        moveColumns(dndorderedColumns)
       }
 
     }
