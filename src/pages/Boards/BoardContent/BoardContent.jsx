@@ -35,7 +35,7 @@ function BoardContent({
   board,
   createNewColumn,
   createNewCard,
-  // moveColumns,
+  moveColumns
   // moveCardInTheSameColumn,
   // moveCardToDifferentColumn,
   // deleteColumnDetails
@@ -150,7 +150,6 @@ function BoardContent({
 
   // ! Trigger khi bắt đầu kéo 1 phần tử
   const handleDragStart = (event) => {
-    // console.log('🚀 ~ handleDragStart: ', event)
     setActiveDragItemId(event?.active?.id)
     setActiveDragItemType(event?.active?.data?.current?.columnId ? ACTIVE_DRAG_ITEM_TYPE.CARD : ACTIVE_DRAG_ITEM_TYPE.COLUMN)
     setActiveDragItemData(event?.active?.data?.current)
@@ -167,7 +166,6 @@ function BoardContent({
     if (activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.COLUMN) return
 
     // Còn nếu kéo Card thì xử lí thêm để có thể kéo Card qua lại giữa các Columns
-    // console.log('🚀 handleDragOver: ', event)
     const { active, over } = event
 
     // Cần đảm bảo nếu k tồn tại active or over (khi kéo ra khỏi phạm vi container) thì k làm gì (tránh crash trang)
@@ -267,7 +265,9 @@ function BoardContent({
         const dndorderedColumns = arrayMove(orderedColumns, oldColumnIndex, newCloumnIndex)
 
         // const dndorderedColumnsIds = dndorderedColumns.map(c => c._id)
+        moveColumns(dndorderedColumns)
 
+        // Vẫn phải update State ở đây để tránh delay hoặc Flickering giao diện lúc kéo thả cần phải chờ gọi API (small trick)
         setOrderedColumns(dndorderedColumns)
       }
 
